@@ -5,7 +5,7 @@ export function addFavs(props) {
     const {id,userID} = props;
     return async function (dispatch) {
         try{
-           await axios.post(`http://localhost:3001/fav/add`, {id,userID})
+           await axios.post(`/fav/add`, {id,userID})
                 dispatch({
                     type: ADD_FAVS,
                     payload: props  
@@ -19,10 +19,9 @@ export function addFavs(props) {
 
 export function deleteFavs(props) {
     const {id,userID} = props;
-    console.log("estamos en deletefavsaccion",props,id,userID)
     return async function (dispatch) {
         try{
-           let response = await axios.delete(`http://localhost:3001/fav/delete?id=${id}&userID=${userID}`) 
+           let response = await axios.delete(`/fav/delete?id=${id}&userID=${userID}`) 
                 dispatch({
                     type: DELETE_FAVS,
                     payload: props.id
@@ -56,7 +55,7 @@ export function guardaid(id){
     console.log("estamos en actions",id)
     return async function (dispatch) {
         try{
-           let response = await axios.get(`http://localhost:3001/fav/obtener/${id}`);
+           let response = await axios.get(`/fav/obtener/${id}`);
        
            dispatch({
         type: GUARDARID,
@@ -74,7 +73,7 @@ export function guardaLocations(){
     
     return async function (dispatch){
         try{ 
-            let response = await axios.get(`http://localhost:3001/all/allLocation`);
+            let response = await axios.get(`/all/allLocation`);
             dispatch({
                 type: GUARDALOCATIONS,
                 payload: response.data})
