@@ -30,7 +30,7 @@ export default function Details(props) {
   const [character , setCharacter] = useState({})
   
   async function fetchData() {  
-    const data = await axios(`/all/dbdata/${id}`);
+    const data = await axios(`http://localhost:3001/all/dbdata/${id}`);
     console.log("=====>",data.data)
     if (data.data.name) {
       setCharacter(data.data);

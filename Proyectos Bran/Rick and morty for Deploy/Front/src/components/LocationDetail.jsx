@@ -59,7 +59,7 @@ const StyledNavLink = styled(NavLink)`
     const [isLoading, setIsLoading] = useState(true);
 
     async function fetchData() {  
-        const data = await axios(`/all/findLocation/${id}`);
+        const data = await axios(`http://localhost:3001/all/findLocation/${id}`);
         setLocation(data.data);
         setIsLoading(false);
     }

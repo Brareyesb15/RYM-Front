@@ -40,7 +40,7 @@ const navigate = useNavigate()
 const dispatch = useDispatch();
 
 const login = async(datos) => {
-   const resp = await axios.post("/user/validate",{
+   const resp = await axios.post("http://localhost:3001/user/validate",{
       email : datos.email,
       password: datos.password,
    })
@@ -55,7 +55,7 @@ const login = async(datos) => {
 }
 
 const registro = async(userData) => {
-   const resp = await axios.post("/user/",{
+   const resp = await axios.post("http://localhost:3001/user/",{
       email : userData.email,
       password:userData.password,
       username: userData.username
@@ -70,7 +70,7 @@ useEffect(() => {
 
 
 const onSearch = async(num) => {
-   const data = await axios(`/all/dbdata/${num}`)
+   const data = await axios(`http://localhost:3001/all/dbdata/${num}`)
    
           if(characters.find(function(elemento) {return elemento.id == num? true : false}))   {
             window.alert ("Personaje ya encontrado")

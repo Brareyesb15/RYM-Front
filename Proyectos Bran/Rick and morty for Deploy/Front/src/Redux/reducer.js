@@ -13,7 +13,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAVS:
-            
+            console.log("entramos en reducer",action.payload,state.myFavorites,state.allCharacters)
             return {
                 ...state,
                 myFavorites: [...state.allCharacters,action.payload],
